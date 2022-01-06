@@ -1,11 +1,11 @@
-import React from "react";
-import { useUsersQuery } from "../../graphql/user";
-import Users from "./components/Users";
+import React from 'react';
+import Users from './components/Users';
+import { useUsersQuery } from '@/graphql/user';
 
-const Main = () => {
+const Main: React.FC = () => {
   const usersQuery = useUsersQuery();
 
-  console.log(usersQuery, "data");
+  console.log(usersQuery, 'data');
   if (usersQuery.loading) {
     return (
       <div>

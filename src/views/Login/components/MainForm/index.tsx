@@ -6,12 +6,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import './index.scss';
 import { validationSchema } from './scheme';
 import FormItem from '../FormItem';
-import { userDetail } from '../../../../store/auth';
 import { useRecoilState } from 'recoil';
-import { useLoginWithEmailMutation } from '../../../../graphql/user';
-import { AUTH_TOKEN } from '../../../../constants/ApiConstant';
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
+import { userDetail } from '@/store/auth';
+import { AUTH_TOKEN } from '@/constants/ApiConstant';
+import { useLoginWithEmailMutation } from '@/graphql/user';
 
 const MainForm: React.FC = () => {
   const [_cookie, setCookie] = useCookies([AUTH_TOKEN]);

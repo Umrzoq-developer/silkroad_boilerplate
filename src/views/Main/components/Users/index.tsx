@@ -1,5 +1,5 @@
+import { useUsersQuery } from '@/graphql/user';
 import React, { lazy, Suspense } from 'react';
-import { useUsersQuery } from '../../../../graphql/user';
 // import UserItem from '../UserItem';
 import './index.scss';
 

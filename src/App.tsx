@@ -1,12 +1,12 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.scss';
-import Layout from './layout';
-import PrivateRoute from './routes/private_route';
-import PublicRoute from './routes/public_route';
-import Login from './views/Login';
-import Main from './views/Main';
-import Math from './views/Math';
+import Layout from '@/layout';
+import PrivateRoute from '@/routes/private_route';
+import PublicRoute from '@/routes/public_route';
+import Login from '@/views/Login';
+import Main from '@/views/Main';
+import Math from '@/views/Math';
 
 const App: React.FC = () => {
   return (
