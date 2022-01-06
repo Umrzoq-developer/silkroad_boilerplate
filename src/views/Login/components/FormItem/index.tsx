@@ -1,16 +1,16 @@
-import React from "react";
-import { Controller, Control } from "react-hook-form";
-import { InputProps } from "antd";
-import Input from "../../../../shared/Input";
+import React from 'react';
+import { Controller, Control } from 'react-hook-form';
+import { InputProps } from 'antd';
+import Input from '@/shared/Input';
 
 interface IProps extends InputProps {
   control: Control | any;
   name: string;
   placeholder: string;
-  errorMessage: string | undefined;
+  errorMessage: string;
 }
 
-const FormItem = ({
+const FormItem: React.FC<IProps> = ({
   control,
   name,
   type,
@@ -26,7 +26,7 @@ const FormItem = ({
           return (
             <Input
               {...field}
-              onChange={(e) => {
+              onChange={e => {
                 field.onChange(e);
               }}
               type={type}
