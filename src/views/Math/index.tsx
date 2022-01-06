@@ -1,5 +1,5 @@
 import React from 'react';
-import { Upload, Button } from 'antd';
+import { Upload, Button, Image } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import {
   RcFile,
@@ -12,10 +12,10 @@ import { useUploadFiles } from '@/graphql/file';
 const Math: React.FC = () => {
   const uploadImg = useUploadFiles();
 
-  console.log(uploadImg.files, 'files collected');
+  console.log(uploadImg.getFilesInArray(), 'files collected');
 
   const dummyRequest = ({ file, onSuccess }: any) => {
-    console.log(file, '====== file ====== ');
+    // console.log(file, '====== file ====== ');
     uploadImg.addFileToSet(file);
     setTimeout(() => {
       onSuccess('ok');
@@ -32,11 +32,18 @@ const Math: React.FC = () => {
     },
   };
 
+  console.log(uploadImg?.getFilesInArray(), 'files 1111');
+
   return (
     <div className="math__wrapper">
       <Upload {...props}>
         <Button icon={<UploadOutlined />}>Upload File</Button>
       </Upload>
+
+      {uploadImg.getFilesInArray() &&
+        uploadImg?.getFilesInArray()?.map((item: any, index: number) => {
+          return <Image key={index} src={item.url} />;
+        })}
     </div>
   );
 };

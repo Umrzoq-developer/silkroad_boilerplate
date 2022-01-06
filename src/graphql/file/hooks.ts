@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useMutation, QueryHookOptions, useLazyQuery } from "@apollo/client";
 import * as shortid from "shortid";
 import { produce } from "immer";
-
+import { message as ms } from "antd";
 import { uploadFilesMutation } from "./mutation";
 import { UploadMutationResult, UploadMutationVars } from "./types";
 import { deleteFileMutation, DeleteFileMutationResult, DeleteFileMutationVars, FileFragment, FilesQueryResult, FilesQueryVars } from ".";
@@ -43,27 +43,28 @@ export function useUploadFiles(defaultFileIds: string[] = [], onUpload?: (upload
   });
 
   const [mutation] = useMutation<UploadMutationResult, UploadMutationVars>(uploadFilesMutation, {
+    onCompleted: (data) => {
+      console.log(data.result, "uploaded data");
+    },
     onError: (err) => {
       console.log(err.message, "error message")
-      // showError({
-      //   title: "Failed!",
-      //   description: err.message,
-      //   options: {
-      //     toastId: "upload files",
-      //   },
-      // });
+      ms.error({
+        content: err.message,
+        style: {
+          marginTop: '30px',
+        },
+      });
     },
   });
   const [deleteMutation] = useMutation<DeleteFileMutationResult, DeleteFileMutationVars>(deleteFileMutation, {
     onError: (err) => {
-      console.log(err.message, "error message")
-      // showError({
-      //   title: "Failed",
-      //   description: err.message,
-      //   options: {
-      //     toastId: "upload files",
-      //   },
-      // });
+      console.log(err.message, "error message");
+      ms.error({
+        content: err.message,
+        style: {
+          marginTop: '30px',
+        },
+      });
     },
   });
 
