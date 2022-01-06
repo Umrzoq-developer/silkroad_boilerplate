@@ -40,10 +40,12 @@ const Math: React.FC = () => {
         <Button icon={<UploadOutlined />}>Upload File</Button>
       </Upload>
 
-      {uploadImg.getFilesInArray() &&
-        uploadImg?.getFilesInArray()?.map((item: any, index: number) => {
-          return <Image key={index} src={item.url} />;
-        })}
+      <div className="image__list">
+        {uploadImg.getFilesInArray() &&
+          uploadImg?.getFilesInArray()?.map((item: any, index: number) => {
+            return <Image key={index} src={item.url} />;
+          })}
+      </div>
     </div>
   );
 };

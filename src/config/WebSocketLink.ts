@@ -1,6 +1,4 @@
-/**
- * graphql-ws Client usage with Apollo
- */
+
 
 import {
   ApolloLink,
