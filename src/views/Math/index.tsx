@@ -12,6 +12,8 @@ import { useUploadFiles } from '@/graphql/file';
 const Math: React.FC = () => {
   const uploadImg = useUploadFiles();
 
+  console.log(uploadImg.files, 'files collected');
+
   const dummyRequest = ({ file, onSuccess }: any) => {
     console.log(file, '====== file ====== ');
     uploadImg.addFileToSet(file);
