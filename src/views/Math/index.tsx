@@ -14,6 +14,7 @@ const Math: React.FC = () => {
 
   const dummyRequest = ({ file, onSuccess }: any) => {
     console.log(file, '====== file ====== ');
+    uploadImg.addFileToSet(file);
     setTimeout(() => {
       onSuccess('ok');
     }, 3000);
